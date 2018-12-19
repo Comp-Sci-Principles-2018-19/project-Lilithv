@@ -1,10 +1,11 @@
 # Project Name:
+The Toy Cars
 
 ## Problem
-Describe the problem that your project seeks to solve
+What toy car could my brother ride that would take him farthest down the hill
 
 ## Big Fat Idea
-Write your "Big Fat Idea" here. 
+kinetic and potential energy, speed, brother's weight, weight of toy car, shape of toy car, distance, starting point, ending point
 
 ## First Agile Iteration
-What can you accomplish in about 4 weeks?
+variables, inputs, print, conditionals, embedded conditionals, functions, and loops(?)
