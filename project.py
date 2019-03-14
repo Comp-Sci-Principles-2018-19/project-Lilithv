@@ -38,7 +38,10 @@ def eggs(f,m):
 
     return msg
 
-            
+
+for i in (50, 60, 70, 80, 90, 100)
+    
+
 
 def test_suite():
     """ Run the suite of tests for code in this module (this file).
