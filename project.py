@@ -39,8 +39,21 @@ def eggs(f,m):
     return msg
 
 
-for i in (50, 60, 70, 80, 90, 100)
-    
+def tempu():
+
+    input("What temp will the eggs be at?")
+    if 50:
+        print("At 50 degrees they will hatch in 5 days")
+    elif 60:
+        print("At 60 degrees they will hatch in 4 days")
+    elif 70:
+        print("At 70 degrees they will hatch in 3 days")
+    elif 80:
+        print("At 80 degrees they will hatch in 2 days")
+    elif 90:
+        print("At 90 degrees they will hatch in 1 day")
+    elif 100:
+        print("At 100 degrees they will hatch in 1 day but you risk killing a lot of eggs")
 
 
 def test_suite():
@@ -52,7 +65,7 @@ def test_suite():
     test(eggs(70,50) == 'Keep the females and put an even amount with each male.\nThere will be 350 to 700 amount of eggs, in total, in 1 to 5 days.\nThere will be a loss of 280.0 to 672.0 larvae and eggs once they reach pupation.')
     test(eggs(60,173) == 'Release 113 of the males.\nThere will be 300 to 600 amount of eggs, in total, in 1 to 5 days.\nThere will be a loss of 240.0 to 576.0 larvae and eggs once they reach pupation.')
 
-test_suite()
+#test_suite()
 
 
 
@@ -62,3 +75,4 @@ m=int(input("How many were male?"))
 
 print(eggs(f,m))
 
+tempu()
