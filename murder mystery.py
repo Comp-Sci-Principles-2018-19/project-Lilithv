@@ -1,10 +1,15 @@
+import numpy as nump
+import pandas as pand
+import pyreadline as pyread
+
+
 class Player:
     def __init__(self, name, msgs=""):
         self.name = name
         self.msgs = msgs
 
 
-player = Player(input("What's your name?"))
+player = (input("What's your name?"))
 
 
 def __main__():
@@ -13,9 +18,6 @@ def __main__():
 
 print("Okay ", Player, ", give me a few moments.")
 
-import numpy as nump
-import pandas as pand
-import pyreadline as pyread
 import adventurelib as advlib
 from adventurelib import *
 
