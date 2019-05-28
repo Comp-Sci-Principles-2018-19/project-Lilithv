@@ -1,3 +1,18 @@
+class Player:
+    def __init__(self, name, msgs=""):
+        self.name = name
+        self.msgs = msgs
+
+
+player = Player(input("What's your name?"))
+
+
+def __main__():
+    player = input()
+
+
+print("Okay ", Player, ", give me a few moments.")
+
 import numpy as nump
 import pandas as pand
 import pyreadline as pyread
@@ -68,18 +83,8 @@ look()
 start()
 
 
-
 data = pand.read_csv('gumedat.csv', 'gumedat', index_col=None, na_values=['NA'])
 columns = data.columns
-
-
-class Player:
-    def __init__(self, name, msgs=""):
-        self.name = name
-        self.msgs = msgs
-
-
-player = Player(input("What's your name? "))
 
 
 while True:
