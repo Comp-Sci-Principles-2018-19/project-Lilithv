@@ -21,7 +21,8 @@ from adventurelib import *
 Room.items = Bag()
 
 current_room = starting_room = Room("""
-You find yourself at a party in a secluded location. A few of your friends are around here. To your left you see
+You find yourself at the center of a party in a secluded location. A few of your friends are around here. To your left
+ you see
 Dovahkiin, the host of the party, and ahead of you is Kayla, a distant friend of yours.
 """)
 
@@ -38,15 +39,14 @@ hallway = starting_room.east = Room("""
 You enter a hallway. Ahead of you in the kitchen you hear someone voraciously eating
 """)
 
-kitchen = hallway.room.north = Room("""
+kitchen = hallway.north = Room("""
 You enter the kitchen to the sight of Lawrence raiding it, devouring any snacks in sight. It comes off as piggish though
 he must have a reason for his appetite.
 """)
 
 pathway = starting_room.south = Room("""
-You exit the house, and look over the property. To the left of you Dorathy is tending to some flowers. Further ahead
-Alice slowly paces around the edge of the pool. Off closer to the forest you see Harold just arriving.
 """)
+
 
 garden1 = pathway.west = Room("""
 As you walk closer to Dorathy, you notice she seems to be picking something off the flowers and placing it in a cup. It
@@ -59,8 +59,6 @@ ground. They look absolutely delectable.
 """)
 
 garden3 = pathway.south = Room("""
-The stone pathway runs out and you see the pool with Alice by it to your left, and Harold preparing something to your
-right.
 """)
 
 pool = garden3.west = Room("""
@@ -81,6 +79,22 @@ def go(direction):
     global current_room
     room = current_room.exit(direction)
     if room:
+        if room == pathway and current_room == garden1 or current_room == garden2 or current_room == garden3:
+            say("""You come back to the pathway, and look over the property. To the left of you Dorathy is tending to 
+            some flowers. Further ahead Alice slowly paces around the edge of the pool. 
+            Off closer to the forest you see Harold just arriving.""")
+        elif room == pathway:
+            say("""
+            You exit the house, and look over the property. To the left of you Dorathy is tending to some flowers. 
+            Further ahead
+            Alice slowly paces around the edge of the pool. Off closer to the forest you see Harold just arriving.
+            """)
+        if room == garden3 and current_room == pool or current_room == forest:
+            say("""The stone pathway returns and you see the pool with Alice by it to your left, and Harold preparing
+             something to your right.""")
+        elif room == garden3:
+            say("""The stone pathway runs out and you see the pool with Alice by it to your left, 
+            and Harold preparing something to your right.""")
         current_room = room
         say('You walk %s.' % direction)
         look()
