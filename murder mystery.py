@@ -1,6 +1,10 @@
 import numpy as nump
 import pandas as pand
 import pyreadline as pyread
+import xlrd
+
+data = pand.read_excel('gumedat.xlsx', 'Sheet1', index_col=None, na_values=['NA'])
+columns = data.columns
 
 
 class Player:
@@ -26,7 +30,7 @@ You find yourself at the center of a party in a secluded location. A few of your
 Dovahkiin, the host of the party, and ahead of you is Kayla, a distant friend of yours.
 """)
 
-balcony = starting_room.north = Room("""
+balcony = starting_room.north = Room(""" 
 You walk ahead towards the balcony, looking over a clearing. Kayla stands there with her arms resting on the railing,
 her hair flowing wildly in the wind.
 """)
@@ -137,10 +141,6 @@ def show_inventory():
 
 look()
 start()
-
-
-data = pand.read_csv('gumedat.csv', 'gumedat', index_col=None, na_values=['NA'])
-columns = data.columns
 
 
 while True:
