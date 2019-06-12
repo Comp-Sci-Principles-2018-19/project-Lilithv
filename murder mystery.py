@@ -6,6 +6,8 @@ import xlrd
 data = pand.read_excel('gumedat.xlsx', 'Sheet1', index_col=None, na_values=['NA'])
 columns = data.columns
 
+playercolum = data["Player"]
+print(playercolum)
 
 class Player:
     def __init__(self, name, msgs=""):
@@ -14,6 +16,9 @@ class Player:
 
 
 name = (input("What's your name?"))
+if name in ['Lilith', 'lilith', 'felix', 'Felix', 'Malcolm', 'malcolm', 'Bowen', 'bowen',
+            'David', 'david', 'Justice', 'justice']:
+        print("Come on, you pick your own damned name? Alright...")
 
 player = Player(name, ' ')
 
@@ -26,8 +31,7 @@ Room.items = Bag()
 
 current_room = starting_room = Room("""
 You find yourself at the center of a party in a secluded location. A few of your friends are around here. To your left
- you see
-Dovahkiin, the host of the party, and ahead of you is Kayla, a distant friend of yours.
+ you see Dovahkiin, the host of the party, and ahead of you is Kayla, a distant friend of yours.
 """)
 
 balcony = starting_room.north = Room(""" 
@@ -83,6 +87,12 @@ def go(direction):
     global current_room
     room = current_room.exit(direction)
     if room:
+        if room == sitting_room:
+            dovcolum = data['Dovakiin'].tolist()
+            quest = input('Say: Hello, or Hey')
+            for (i, v) in enumerate(playercolum.tolist()):
+                if quest == v or quest == " "+v:
+                    print(dovcolum[i])
         if room == pathway and current_room == garden1 or current_room == garden2 or current_room == garden3:
             say("""You come back to the pathway, and look over the property. To the left of you Dorathy is tending to 
             some flowers. Further ahead Alice slowly paces around the edge of the pool. 
@@ -143,6 +153,7 @@ look()
 start()
 
 
+'''
 while True:
     msg = input(Player(": "))
     if msg not in data['gumedat'].tolist():
@@ -160,3 +171,4 @@ while True:
                 data[friend][i] = input()
                 data.to_csv('gumedat', index=False, sheet_name='gumedat')
                 break
+'''
