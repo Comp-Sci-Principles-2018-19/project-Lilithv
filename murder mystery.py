@@ -87,12 +87,6 @@ def go(direction):
     global current_room
     room = current_room.exit(direction)
     if room:
-        if room == sitting_room:
-            dovcolum = data['Dovakiin'].tolist()
-            quest = input('Say: Hello, or Hey')
-            for (i, v) in enumerate(playercolum.tolist()):
-                if quest == v or quest == " "+v:
-                    print(dovcolum[i])
         if room == pathway and current_room == garden1 or current_room == garden2 or current_room == garden3:
             say("""You come back to the pathway, and look over the property. To the left of you Dorathy is tending to 
             some flowers. Further ahead Alice slowly paces around the edge of the pool. 
@@ -112,6 +106,8 @@ def go(direction):
         current_room = room
         say('You walk %s.' % direction)
         look()
+        if room == sitting_room:
+            say("Type 'talk Dovakiin' if you want to speak to Dovahkiin.")
 
 
 @when('take ITEM')
@@ -122,6 +118,17 @@ def take(item):
         inventory.add(obj)
     else:
         say('There is no %s here.' % item)
+
+@when('talk PERSON')
+def talk(person):
+    while True:
+        personcolum = data[person].tolist()
+        quest = input('What do you say to ' + person)
+        if quest == ("goodbye"):
+            return
+        for (i, v) in enumerate(playercolum.tolist()):
+            if quest == v or quest == " " + v:
+                print(personcolum[i])
 
 
 @when('drop THING')
